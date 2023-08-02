@@ -10,7 +10,10 @@ app = Flask(__name__)
 CORS(app)
 
 app.config['SQLALCHEMY_DATABASE_URI'] = os.environ["DATABASE_URL"]
+app.config['SECRET_KEY'] = os.environ["SECRET_KEY"]
+
 db = SQLAlchemy(app)
 
-# add this after app is created so the app can initialise
-from application import routes 
+from application import routes
+from application import forms
+
